@@ -29,7 +29,7 @@
 
 <!-- 2. Berapa banyak vote yang diterima anggota Congress yang memiliki grade di bawah 9 (gunakan field `grade_current`)? Ambil nama, lokasi, grade_current dan jumlah vote. -->
 
-<!-- SELECT congress_members.name,congress_members.location,congress_members.grade_current, COUNT(votes.id) FROM votes,congress_members ON congress_members.id = votes.politician_id WHERE congress_members.grade_current < 9 GROUP BY votes.politician_id ORDER BY COUNT(votes.id); -->
+<!-- SELECT congress_members.name,congress_members.location,congress_members.grade_current, COUNT(votes.id) AS total_votes FROM votes,congress_members ON congress_members.id = votes.politician_id WHERE congress_members.grade_current < 9 GROUP BY votes.politician_id ORDER BY COUNT(votes.id) DESC; -->
 
 <!-- 3. Apa saja 10 negara bagian yang memiliki voters terbanyak? List semua orang yang melakukan vote di negara bagian yang paling populer. (Akan menjadi daftar yang panjang, kamu bisa gunakan hasil dari query pertama untuk menyederhanakan query berikut ini.) -->
 

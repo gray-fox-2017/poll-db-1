@@ -11,7 +11,7 @@ FROM
 JOIN votes ON
   congress_members.id = votes.politician_id
 WHERE
-  congress_members.id = 524;
+  congress_members.name = 'Sen. Olympia Snowe';
 
 <!-- 3. Sekarang gimana dengan representative Erik Paulsen? Berapa banyak vote yang dia dapatkan? -->
 SELECT COUNT(votes.id)

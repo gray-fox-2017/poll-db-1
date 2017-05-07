@@ -1,15 +1,15 @@
 <!-- Release 1  -->
 
 <!-- 1. Hitung jumlah vote untuk Sen. Olympia Snowe yang memiliki id 524. -->
-
+SELECT COUNT(id) FROM votes WHERE politician_id=523;
 <!-- 2. Sekarang lakukan JOIN tanpa menggunakan id `524`. Query kedua tabel votes dan congress_members. -->
-
+SELECT * FROM congress_members INNER JOIN VOTES ON congress_members.id = votes.politician_id WHERE congress_members.id=524;
 <!-- 3. Sekarang gimana dengan representative Erik Paulsen? Berapa banyak vote yang dia dapatkan? -->
-
+SELECT id, name FROM congress_members WHERE name LIKE '%erik paulsen%'; SELECT COUNT(id) FROM votes WHERE politician_id=339;
 <!-- 4. Buatlah daftar peserta Congress yang mendapatkan vote terbanyak. Jangan sertakan field `created_at` dan `updated_at`. -->
-
+SELECT name, party, location, grade_1996, grade_current, years_in_congress, dw1_score, count(votes.voter_id) AS number_of_votes FROM congress_members JOIN votes WHERE congress_members.id = votes.politician_id GROUP BY congress_members.id ORDER BY number_of_votes DESC LIMIT 3;
 <!-- 5. Sekarang buatlah sebuah daftar semua anggota Congress yang setidaknya mendapatkan beberapa vote dalam urutan dari yang paling sedikit. Dan juga jangan sertakan field-field yang memiliki tipe date. -->
-
+SELECT name, party, location, grade_1996, grade_current, years_in_congress, dw1_score, count(votes.voter_id) AS number_of_votes FROM congress_members JOIN votes WHERE congress_members.id = votes.politician_id GROUP BY congress_members.id ORDER BY number_of_votes ASC LIMIT 3;
 <!-- Release 2  -->
 
 <!-- 1. Siapa anggota Congress yang mendapatkan vote terbanyak? List nama mereka dan jumlah vote-nya. Siapa saja yang memilih politisi tersebut? List nama mereka, dan jenis kelamin mereka. -->
